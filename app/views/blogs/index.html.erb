@@ -1,0 +1,15 @@
+<h1>Your Blog</h1>
+
+<% @blogs.each do |blog| %>
+  <ul>
+    <li>Title:<%= blog.title %></li>
+    <li>Blog:<%= blog.description %></li>
+    <li>
+      <%= form_for blog, url: blog_path(blog), method: :delete do |f| %>
+        <%= f.submit 'delete' %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
+<%= link_to 'New', new_blog_path %>
